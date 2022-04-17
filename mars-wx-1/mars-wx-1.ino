@@ -118,12 +118,6 @@ lightMeter.begin();
   delay(250); // wait for the OLED to power up
   display.begin(0x3C, true); // Address 0x3C default
   Serial.println("OLED begun");
-  // Show image buffer on the display hardware.
-  // Since the buffer is intialized with an Adafruit splashscreen
-  // internally, this will display the splashscreen.
-  //display.display();
-  //delay(1000);
-
 
   // Clear the buffer.
   display.clearDisplay();
@@ -186,23 +180,6 @@ void printSensorsValues() {
     Serial.print(BMEpressureKPa, 1); 
     Serial.println("kPa   ");
 
-/*  // This works, but not really interested in this right now.
-    display.setTextWrap(false);
-    display.setCursor(TEXTLEFTCOORDINATE,TEXTROWHEIGHT*5);
-    float BMEaltitudeEarthRaw = bme.readAltitude(SEALEVELPRESSURE_HPA);
-    int BMEaltitudeEarth = roundf(BMEaltitudeEarthRaw / 10.0F) * 10;
-    if (BMEaltitudeEarth < 0){  // Clamp altitude on earth to 0 m
-      BMEaltitudeEarth = 0;
-    }
-    
-    display.print("A: ");
-    display.print(BMEaltitudeEarth);
-    display.print(" m   ");
-
-    Serial.print("Approx. Altitude = ");
-    Serial.print(BMEaltitudeEarth);
-    Serial.println(" m    ");
-    */
 
     display.setTextWrap(false);
     display.setCursor(TEXTLEFTCOORDINATE,TEXTROWHEIGHT*6);
